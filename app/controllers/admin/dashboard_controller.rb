@@ -4,4 +4,16 @@ class Admin::DashboardController < ApplicationController
     @categories = Category.all
   end
 
+  def new
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.new(category_name)
+
+    if @category.save
+      redirect_to [:admin], notice: 'Category Created!'
+    end
+  end
+
 end
