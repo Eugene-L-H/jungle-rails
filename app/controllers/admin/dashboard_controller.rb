@@ -16,4 +16,10 @@ class Admin::DashboardController < ApplicationController
     end
   end
 
+  def category_name
+    params.require(:category).permit(
+      :name
+    )
+  end
+
 end
