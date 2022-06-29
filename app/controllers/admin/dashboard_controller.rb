@@ -1,7 +1,7 @@
 class Admin::DashboardController < ApplicationController
 
   def show
-    @categories = Category.order(id: :desc).all
+    @categories = Category.all
   end
-  
+
 end
