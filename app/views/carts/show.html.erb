@@ -1,10 +1,17 @@
 <section class="cart-show">
-
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
 
   <div class="panel panel-default items">
+
+<% if enhanced_cart.length == 0 %>
+
+  <h3 class="alert alert-success">Your cart is currently empty. Please head back to the <a href="/">store</a> to add something. </h3>
+
+<% else %>
+
+<div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -25,13 +32,12 @@
             TOTAL:
           </th>
           <th>
-            <%= cart_subtotal_cents / 100.0 %>
+            <%= humanized_money_with_symbol cart_subtotal_cents / 100.0 %>
           </th>
         </tr>
       </tfoot>
     </table>
   </div>
-
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -49,4 +55,5 @@
     </div>
   </div>
 
+<% end %>
 </section>
