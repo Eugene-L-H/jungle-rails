@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'about/index'
+  get 'static_pages/help'
+  get 'static_pages/faq'
+  get 'static_pages/about'
   root to: 'products#index'
-  # get '/' => 'products#index' |^^^The same as
-  # get '/' => { controller: 'products', action: 'index' } | Also the same
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
