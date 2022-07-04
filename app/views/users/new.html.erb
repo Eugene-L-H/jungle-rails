@@ -1,0 +1,16 @@
+<h1>Sign-up to the Jungle!</h1>
+
+<%= form_for :user, url: '/users' do |f| %>
+
+  <div class="signup-form">
+    <div>
+      Name: <%= f.text_field :name %>
+      Email: <%= f.text_field :email %>
+    </div>
+    <div>
+      Password: <%= f.password_field :password %>
+      Password Confirmation: <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
+  <%= f.submit "Submit" %>
+<% end %>

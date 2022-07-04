@@ -60,12 +60,33 @@
         <ul class="dropdown-menu dropdown-menu-dark">
           <li><%= link_to 'Dashboard', [:admin, :root], class: "nav-link" %></li>
           <li><%= link_to 'Products', [:admin, :products], class: "nav-link" %></li>
+          <li><%= link_to 'Categories', [:admin, :categories], class: "nav-link" %></li>
         </ul>
       </li>
       <li class="nav-item end-0">
         <%= link_to cart_path, class: "nav-link " do %> <%= fa_icon "shopping-cart" %>
-        My Cart (<%= cart.size %>) <% end %>
+        My Cart (<%= cart.size %>) 
+        <% end %>
       </li>
+      <% if current_user %>
+
+      <li>
+        <a class="nav-link"><%= current_user.name %></a>
+      
+      <li>
+        <%= link_to "Logout", '/logout', class: "nav-link" %>
+      </li>
+
+      <% else %>
+
+      <li>
+        <%= link_to 'Login', '/login', class: "nav-link" %> 
+      </li>
+      <li>
+        <%= link_to 'Signup', '/signup', class: "nav-link" %>
+      </li>
+
+      <% end %>
     </ul>
   </div>
 </div>
@@ -82,7 +103,7 @@ const gnr = () => {
   uptitle.style.textAlign = "center";
 
   subtitle.innerHTML =
-    "<p>Lorem</p><p> Ipsum</p>";
+    "<p>Watch it bring you to your</p><p> shu-n-n-n-n-n-n-n-n knees, knees!</p>";
 };
 const title = document.querySelector("header.hero");
 title.addEventListener("dblclick", gnr);
